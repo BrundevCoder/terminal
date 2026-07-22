@@ -19,6 +19,12 @@ let commands = {
     "blur": () => blurControll(true),
     "unblur": () => blurControll(false),
     "getDate": () => date(),
+    "bg-normal": () => changeBg("#20201f"),
+    "bg-blue": () => changeBg("#1e4257"),
+    "bg-red": () => changeBg("#530707"),
+    "bg-pink": () => changeBg("#520761"),
+    "bg-green": () => changeBg("#05460a"),
+    "bg-yellow": () => changeBg("#4e4906"),
 }
 
 function addLine(command, type) {
@@ -55,6 +61,12 @@ function help() {
     addLine("`blur` : To blur the terminal", "string");
     addLine("`unblur` : To unblur the terminal", "string");
     addLine("`getDate` : To see todays date/time", "string");
+    addLine("`bg-normal` : Change your background to Normal", "string");
+    addLine("`bg-blue` : Change your background to Blue", "string");
+    addLine("`bg-red` : Change your background to Red", "string");
+    addLine("`bg-pink` : Change your background to Pink", "string");
+    addLine("`bg-green` : Change your background to Pink", "string");
+    addLine("`bg-yellow` : Change your background to Yellow", "string");
 }
 
 function openLink(link) {
@@ -112,6 +124,11 @@ function date() {
     let seconds = today.getSeconds();
 
     addLine(`Date returned: { \n \n "Date": ${month}/${day}/${year} \n \n "Time": ${hours}h : ${minutes}m : ${seconds}s \n \n }`, "string");
+}
+
+function changeBg(color) {
+    document.body.style.background = color;
+    addLine(`Style applied successively! Bg: ${color}`)
 }
 
 function readInput() {
