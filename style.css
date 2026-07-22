@@ -37,12 +37,24 @@ main {
     color: rgb(30, 221, 189) !important;
 }
 
+.int {
+    color: #d8b61e !important;
+}
+
 .u-command {
     color: rgb(30, 221, 62) !important;
 }
 
+.error {
+    color: #ff0000 !important;
+}
+
 .input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: "VT323", monospace;
+    font-weight: bold;
     margin-bottom: 1.2rem;
     padding: 1rem;
     position: absolute;
@@ -55,10 +67,13 @@ main {
 }
 
 .input-container span {
+    padding-right: .25rem;
     color: #197521;
 }
 
 #commandInput {
+    font-family: "VT323", monospace;
+    font-weight: 900;
     height: 50px;
     background: none;
     border: none;
