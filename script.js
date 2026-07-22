@@ -8,11 +8,17 @@ let commands = {
     "open youtube": () => openLink("https://www.youtube.com/"),
     "open spotify": () => openLink("https://open.spotify.com/"),
     "open temp-converter": () => openLink("https://brundevcoder.github.io/temperature-converter/"),
+    "open guess-the-word": () => openLink("https://brundevcoder.github.io/guess-the-word/"),
+    "open cat-gallery": () => openLink("https://brundevcoder.github.io/cat-gallery/"),
+    "open guess-the-number": () => openLink("https://brundevcoder.github.io/guess-the-number-web/"),
     "clear": () => clear(),
     "reset": () => reset(),
     "randomNumber": () => getNumber(),
     "randomLetter": () => getLetter(),
     "deleteCommands": () => deleteCommands(),
+    "blur": () => blurControll(true),
+    "unblur": () => blurControll(false),
+    "getDate": () => date(),
 }
 
 function addLine(command, type) {
@@ -32,21 +38,31 @@ function addLine(command, type) {
 
 function help() {
     addLine("List of commands:", "string");
-    addLine("`info` : See the info of this terminal", "string");
+    addLine("\n`info` : See the info of this terminal", "string");
     addLine("`ls` : See what is in your current directory", "string");
     addLine("`help` : get help with commands", "string");
     addLine("`open youtube` : Open youtube on your broswer!", "string");
     addLine("`open spotify` : Open Spotify on your broswer!", "string");
     addLine("`open temp-converter` : Open my temperature converter on your broswer!", "string");
+    addLine("`open guess-the-word` : Open my guess the word on your broswer!", "string");
+    addLine("`open guess-the-number` : Open my guess the number on your broswer!", "string");
+    addLine("`open cat-gallery` : Open my cat-gallery on your broswer!", "string");
     addLine("`clear` : It removes every line in your terminal", "string");
     addLine("`reset` : It resets this page", "string");
     addLine("`randomNumber` : Get a random number!", "string");
     addLine("`randomLetter` : Get a random letter!", "string");
     addLine("`deleteCommands` : Delete all commands of this terminal", "string");
+    addLine("`blur` : To blur the terminal", "string");
+    addLine("`unblur` : To unblur the terminal", "string");
+    addLine("`getDate` : To see todays date/time", "string");
 }
 
 function openLink(link) {
-    window.location.href = link;
+    addLine(`Re-directing to ${link} ...`, "string")
+
+    setTimeout(() => {
+        window.location.href = link;
+    }, 2500);
 }
 
 function clear() {
@@ -75,6 +91,29 @@ function deleteCommands() {
     commands = {};
 }
 
+function blurControll(boolean) {
+    if (boolean) {
+        document.body.style.filter = "blur(3px)";
+    }
+    else {
+        document.body.style.filter = "blur(0)";
+    }
+}
+
+function date() {
+    const today = new Date();
+
+    let day = today.getDate();
+    let month = today.getMonth() + 1;
+    let year = today.getFullYear();
+
+    let hours = today.getHours();
+    let minutes = today.getMinutes();
+    let seconds = today.getSeconds();
+
+    addLine(`Date returned: { \n \n "Date": ${month}/${day}/${year} \n \n "Time": ${hours}h : ${minutes}m : ${seconds}s \n \n }`, "string");
+}
+
 function readInput() {
     let command = commandInput.value;
 
@@ -95,3 +134,5 @@ commandInput.addEventListener("keydown", function (e) {
         readInput();
     }
 })
+
+commandInput.focus();
