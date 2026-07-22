@@ -1,6 +1,6 @@
 ![Banner](README_img/image.png)
 
-# Web Terminal
+# Dev Terminal
 Welcome to the web terminal! Here you can do things like check the current date, change the background, open links more efficiently, and more!
 
 Make sure to see all commands typing `help` in the terminal!
