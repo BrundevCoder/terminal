@@ -20,3 +20,7 @@ Also, every new line of command / output, there is a quick flash on the line, li
 furthermore, if you enter a command that does not exist or you give a null command, you will get an error like this:
 
 ![example](README_img/errors.gif)
+
+## How to run it
+
+After cloning this repository, simply open the `index.html` file directly fromt the files, or you can use the Live Server extension in Vs Code!
