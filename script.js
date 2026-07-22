@@ -7,9 +7,12 @@ let commands = {
     "help": () => help(),
     "open youtube": () => openLink("https://www.youtube.com/"),
     "open spotify": () => openLink("https://open.spotify.com/"),
+    "open temp-converter": () => openLink("https://brundevcoder.github.io/temperature-converter/"),
     "clear": () => clear(),
     "reset": () => reset(),
     "randomNumber": () => getNumber(),
+    "randomLetter": () => getLetter(),
+    "deleteCommands": () => deleteCommands(),
 }
 
 function addLine(command, type) {
@@ -34,9 +37,12 @@ function help() {
     addLine("`help` : get help with commands", "string");
     addLine("`open youtube` : Open youtube on your broswer!", "string");
     addLine("`open spotify` : Open Spotify on your broswer!", "string");
+    addLine("`open temp-converter` : Open my temperature converter on your broswer!", "string");
     addLine("`clear` : It removes every line in your terminal", "string");
     addLine("`reset` : It resets this page", "string");
     addLine("`randomNumber` : Get a random number!", "string");
+    addLine("`randomLetter` : Get a random letter!", "string");
+    addLine("`deleteCommands` : Delete all commands of this terminal", "string");
 }
 
 function openLink(link) {
@@ -54,6 +60,19 @@ function reset() {
 function getNumber() {
     const number = Math.floor(Math.random() * 10000000);
     addLine(`${number}`, "int");
+}
+
+function getLetter() {
+    const letters = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
+        "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v",
+        "b", "n", "m"
+    ]
+
+    addLine(`${letters[Math.floor(Math.random() * letters.length)]}`, "string");
+}
+
+function deleteCommands() {
+    commands = {};
 }
 
 function readInput() {
