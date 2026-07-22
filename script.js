@@ -65,7 +65,7 @@ function help() {
     addLine("`bg-blue` : Change your background to Blue", "string");
     addLine("`bg-red` : Change your background to Red", "string");
     addLine("`bg-pink` : Change your background to Pink", "string");
-    addLine("`bg-green` : Change your background to Pink", "string");
+    addLine("`bg-green` : Change your background to Green", "string");
     addLine("`bg-yellow` : Change your background to Yellow", "string");
 }
 
@@ -128,7 +128,7 @@ function date() {
 
 function changeBg(color) {
     document.body.style.background = color;
-    addLine(`Style applied successively! Bg: ${color}`)
+    addLine(`Style applied successfully! Bg: ${color}`, "string");
 }
 
 function readInput() {
@@ -148,6 +148,10 @@ function readInput() {
 
 commandInput.addEventListener("keydown", function (e) {
     if (e.key === "Enter") {
+        if (commandInput.value === "") {
+            addLine("Why are u trying to run a empty command? ;-;", "error");
+            return;
+        }
         readInput();
     }
 })
