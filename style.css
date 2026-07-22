@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&family=VT323&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #20201f;
+}
+
+main {
+    padding: 1.25rem;
+}
+
+.commands-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+}
+
+.commands-list .command {
+    font-family: "VT323", monospace;
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+.command {
+    background: #fff;
+    animation: flash .75s forwards;
+}
+
+.string {
+    color: rgb(30, 221, 189) !important;
+}
+
+.u-command {
+    color: rgb(30, 221, 62) !important;
+}
+
+.input-container {
+    font-family: "VT323", monospace;
+    margin-bottom: 1.2rem;
+    padding: 1rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #000;
+    font-size: 1.2rem;
+    border-radius: 8px;
+}
+
+.input-container span {
+    color: #197521;
+}
+
+#commandInput {
+    height: 50px;
+    background: none;
+    border: none;
+    outline: none;
+    color: #197521;
+    font-size: 1.15rem;
+}
+
+@keyframes flash {
+    to {background: transparent;}
+}
